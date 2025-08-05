@@ -4,91 +4,59 @@ body {
     background-color: #FFFFFF;
     color: #1B263B;
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
 }
-
 header {
     background-color: #1B263B;
-    padding: 1rem 0;
-    width: 100%;
+    padding: 1rem;
     position: sticky;
     top: 0;
     z-index: 100;
 }
-
-#mobile-nav-toggle {
-    display: none;
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin: 0 auto;
-    text-align: center;
-    font-weight: bold;
-}
-
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 2rem;
     margin: 0;
-    padding: 0 1rem;
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0;
 }
-
 nav a {
     color: #FFFFFF;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
-    padding: 0.5rem 1rem;
-    display: block;
 }
-
 nav a:hover {
     color: #D1D5DB;
 }
-
 section {
-    width: 100%;
-    padding: 3rem 2rem;
-    box-sizing: border-box;
+    padding: 3rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
-
 h1 {
     font-size: 2.5rem;
     color: #1B263B;
     margin-bottom: 0.5rem;
 }
-
 h2 {
     font-size: 1.8rem;
     color: #1B263B;
     margin-bottom: 1rem;
 }
-
 h3 {
     font-size: 1.4rem;
     color: #1B263B;
     margin-bottom: 0.5rem;
 }
-
 p, ul {
     font-size: 1rem;
     color: #1B263B;
 }
-
 ul {
     list-style: disc;
     padding-left: 1.5rem;
 }
-
 .job {
     background-color: #F5F5DC;
     padding: 1.5rem;
@@ -96,16 +64,13 @@ ul {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 form {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    max-width: 500px;
+    margin-bottom: 1rem;
 }
-
 input, textarea {
     padding: 0.75rem;
     border: 1px solid #6B7280;
@@ -113,24 +78,11 @@ input, textarea {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     box-sizing: border-box;
-    width: 100%;
 }
-
 textarea {
     min-height: 100px;
     resize: vertical;
 }
-
-.button-group {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 button, .cta-btn, .resume-btn {
     background-color: #1B263B;
     color: #FFFFFF;
@@ -142,66 +94,22 @@ button, .cta-btn, .resume-btn {
     text-align: center;
     display: inline-block;
     transition: background-color 0.3s;
-    width: auto;
-    margin: 0.5rem 0;
-    text-decoration: none;
 }
-
 button:hover, .cta-btn:hover, .resume-btn:hover {
     background-color: #6B7280;
 }
-
-@media (max-width: 768px) {
-    #mobile-nav-toggle {
-        display: block;
-    }
-
+@media (max-width: 600px) {
     nav ul {
         flex-direction: column;
-        text-align: center;
-        padding: 0;
-        display: none;
+        gap: 1rem;
     }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    nav a {
-        padding: 0.5rem 0;
-        font-size: 1rem;
-        width: 100%;
-    }
-
     section {
         padding: 2rem 1rem;
     }
-
     h1 {
         font-size: 2rem;
     }
-
     h2 {
         font-size: 1.5rem;
-    }
-
-    .job {
-        padding: 1rem;
-    }
-
-    input, textarea {
-        width: 100%;
-    }
-
-    button, .cta-btn, .resume-btn {
-        width: auto;
-        padding: 0.5rem 1rem;
-        display: inline-block;
-    }
-}
-
-@media (min-width: 769px) {
-    #mobile-nav-toggle, nav ul {
-        display: none !important;
     }
 }
