@@ -6,7 +6,7 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Ensures full width */
+    align-items: stretch;
 }
 
 header {
@@ -18,14 +18,26 @@ header {
     z-index: 100;
 }
 
+#mobile-nav-toggle {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: space-around; /* Spreads buttons evenly across width */
+    justify-content: space-around;
     margin: 0;
-    padding: 0 1rem; /* Adds slight padding on sides */
+    padding: 0 1rem;
     width: 100%;
-    max-width: 1200px; /* Optional: Limits nav width on very large screens */
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -35,7 +47,8 @@ nav a {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
-    padding: 0.5rem 1rem; /* Adds clickable area around text */
+    padding: 0.5rem 1rem;
+    display: block;
 }
 
 nav a:hover {
@@ -43,9 +56,9 @@ nav a:hover {
 }
 
 section {
-    width: 100%; /* Full width */
-    padding: 3rem 2rem; /* Padding to keep content from touching edges */
-    box-sizing: border-box; /* Ensures padding doesn't break layout */
+    width: 100%;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -87,7 +100,7 @@ ul {
 form {
     width: 100%;
     max-width: 500px;
-    margin: 0 auto; /* Centers the form within section */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -109,16 +122,15 @@ textarea {
 }
 
 .button-group {
-    margin-top: 1.5rem; /* Space between form and buttons */
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Gap between the two buttons */
+    gap: 1rem;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Add or update this to remove underlines from buttons */
 button, .cta-btn, .resume-btn {
     background-color: #1B263B;
     color: #FFFFFF;
@@ -128,116 +140,68 @@ button, .cta-btn, .resume-btn {
     cursor: pointer;
     font-size: 1rem;
     text-align: center;
-    display: inline-block; /* Text-based sizing */
+    display: inline-block;
     transition: background-color 0.3s;
-    width: auto; /* Fits content */
-    margin: 0.5rem 0; /* Vertical spacing */
-    text-decoration: none; /* Removes underline from <a> tags */
+    width: auto;
+    margin: 0.5rem 0;
+    text-decoration: none;
 }
 
 button:hover, .cta-btn:hover, .resume-btn:hover {
     background-color: #6B7280;
 }
 
-/* Mobile specific tweak */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    #mobile-nav-toggle {
+        display: block;
+    }
+
     nav ul {
         flex-direction: column;
         text-align: center;
         padding: 0;
+        display: none;
     }
+
+    nav ul.show {
+        display: flex;
+    }
+
     nav a {
         padding: 0.5rem 0;
         font-size: 1rem;
         width: 100%;
     }
+
     section {
         padding: 2rem 1rem;
     }
+
     h1 {
         font-size: 2rem;
     }
+
     h2 {
         font-size: 1.5rem;
     }
+
     .job {
         padding: 1rem;
     }
+
     input, textarea {
         width: 100%;
     }
+
     button, .cta-btn, .resume-btn {
-        width: auto; /* Ensures buttons fit content */
-        padding: 0.5rem 1rem; /* Adjusted padding for mobile */
-        display: inline-block; /* Keeps text-based sizing */
-    }
-}
-/* Mobile header with logo and hamburger icon */
-.mobile-header {
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    background-color: #1B263B;
-    color: white;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.menu-toggle {
-    font-size: 1.8rem;
-    cursor: pointer;
-    user-select: none;
-}
-
-/* Hidden nav by default on small screens */
-#mobile-nav {
-    display: none;
-    background-color: #1B263B;
-}
-
-#mobile-nav.open {
-    display: block;
-}
-
-#mobile-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#mobile-nav li {
-    border-bottom: 1px solid #334155;
-}
-
-#mobile-nav a {
-    display: block;
-    color: white;
-    padding: 1rem;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-#mobile-nav a:hover {
-    background-color: #334155;
-}
-
-/* Desktop nav stays same, mobile nav triggers below */
-@media (max-width: 768px) {
-    nav ul {
-        display: none; /* hide desktop nav on mobile */
-    }
-
-    .mobile-header {
-        display: flex;
-    }
-
-    nav#mobile-nav ul {
-        display: flex;
-        flex-direction: column;
+        width: auto;
+        padding: 0.5rem 1rem;
+        display: inline-block;
     }
 }
 
+@media (min-width: 769px) {
+    #mobile-nav-toggle, nav ul {
+        display: none !important;
+    }
+}
