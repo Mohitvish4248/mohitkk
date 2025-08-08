@@ -139,6 +139,8 @@ button, .cta-btn, .resume-btn {
 
 button, .resume-btn {
     width: 100%; /* Matches the width of Send Message within max-width */
+    height: 38px; /* Matches Send Message height */
+    line-height: 1; /* Ensures text aligns properly */
 }
 
 .cta-btn {
@@ -149,6 +151,7 @@ button, .resume-btn {
 .resume-btn.download-smaller {
     width: 70%; /* Makes it smaller than full width */
     padding: 0.5rem 1rem; /* Reduces padding for a compact look */
+    height: 34px; /* Slightly smaller height to match compact look */
 }
 
 button:hover, .cta-btn:hover, .resume-btn:hover {
@@ -166,32 +169,49 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
         padding: 0.5rem 0;
         font-size: 1rem;
         width: 100%;
+        display: block; /* Ensures full width on mobile */
     }
     section {
-        padding: 2rem 1rem;
+        padding: 1.5rem 0.5rem; /* Reduced padding for mobile */
     }
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem; /* Smaller font for mobile */
     }
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem; /* Smaller font for mobile */
+    }
+    h3 {
+        font-size: 1.2rem; /* Smaller font for mobile */
+    }
+    p, ul {
+        font-size: 0.9rem; /* Adjusted text size for readability */
     }
     .job {
         padding: 1rem;
+        margin: 0.5rem 0;
+    }
+    form {
+        max-width: 100%; /* Full width on mobile */
+        padding: 0 0.5rem; /* Slight padding on sides */
     }
     input, textarea {
         width: 100%;
+        font-size: 0.9rem; /* Smaller font for mobile */
+    }
+    .button-group {
+        max-width: 100%; /* Full width on mobile */
+        padding: 0 0.5rem; /* Slight padding on sides */
     }
     button, .cta-btn, .resume-btn {
-        width: auto; /* Ensures buttons fit content within mobile */
-        padding: 0.5rem 1rem; /* Adjusted padding for mobile */
-        display: inline-block; /* Keeps text-based sizing */
+        width: 100%; /* Full width buttons on mobile */
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem; /* Smaller font for mobile */
     }
     button, .resume-btn {
-        width: 100%; /* Matches Send Message width on mobile */
+        height: 38px; /* Maintains height */
     }
     .resume-btn.download-smaller {
         width: 70%; /* Keeps smaller size on mobile */
-        padding: 0.5rem 1rem; /* Compact look */
+        height: 34px; /* Maintains height */
     }
 }
