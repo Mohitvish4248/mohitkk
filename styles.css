@@ -6,7 +6,7 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Ensures full width */
+    align-items: stretch;
     scroll-behavior: smooth;
 }
 
@@ -33,11 +33,11 @@ nav {
     color: #FFFFFF;
     font-weight: 700;
     font-size: 1.5rem;
-    display: none; /* Hidden by default, shown on mobile */
+    display: none;
 }
 
 .nav-toggle {
-    display: none; /* Hidden by default, shown on mobile */
+    display: none;
     cursor: pointer;
 }
 
@@ -72,9 +72,10 @@ nav {
 }
 
 section {
-    width: 100%; /* Full width */
-    padding: 3rem 2rem; /* Padding to keep content from touching edges */
-    box-sizing: border-box; /* Ensures padding doesn't break layout */
+    width: 100%;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+    scroll-margin-top: 70px; /* Adjusts scroll position to account for sticky header */
 }
 
 h1 {
@@ -116,7 +117,7 @@ ul {
 form {
     width: 100%;
     max-width: 500px;
-    margin: 0 auto; /* Centers the form within section */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -138,18 +139,16 @@ textarea {
 }
 
 .button-group {
-    /* Removed margin-top to place buttons just below Send Message */
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Gap between the two buttons */
+    gap: 1rem;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    align-items: center; /* Centers the buttons horizontally */
-    padding-top: 0; /* Ensures no extra space above buttons */
+    align-items: center;
+    padding-top: 0;
 }
 
-/* Add or update this to remove underlines from buttons */
 button, .cta-btn, .resume-btn {
     background-color: #1B263B;
     color: #FFFFFF;
@@ -159,44 +158,33 @@ button, .cta-btn, .resume-btn {
     cursor: pointer;
     font-size: 1rem;
     text-align: center;
-    display: inline-block; /* Text-based sizing */
+    display: inline-block;
     transition: background-color 0.3s;
-    margin: 0.5rem 0; /* Vertical spacing */
-    text-decoration: none; /* Removes underline from <a> tags */
-    box-sizing: border-box; /* Ensures padding doesn't affect width */
-}
-
-button, .resume-btn {
-    width: 100%; /* Matches the width of Send Message within max-width */
+    margin: 0.5rem 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 100%; /* Full width for consistency */
     height: 38px; /* Matches Send Message height */
-    line-height: 1; /* Ensures text aligns properly */
+    line-height: 1;
 }
 
 .cta-btn {
     width: auto; /* Keeps original size for Get in Touch */
 }
 
-/* Specific styling for Download Resume button to make it smaller */
-.resume-btn.download-smaller {
-    width: 70%; /* Makes it smaller than full width */
-    padding: 0.5rem 1rem; /* Reduces padding for a compact look */
-    height: 34px; /* Slightly smaller height to match compact look */
-}
-
 button:hover, .cta-btn:hover, .resume-btn:hover {
     background-color: #6B7280;
 }
 
-/* Mobile specific tweak */
 @media (max-width: 600px) {
     .nav-brand {
-        display: block; /* Show brand on mobile */
+        display: block;
     }
     .nav-toggle {
-        display: block; /* Show hamburger menu */
+        display: block;
     }
     .nav-menu {
-        display: none; /* Hide menu by default */
+        display: none;
         position: absolute;
         top: 60px;
         right: 1rem;
@@ -208,7 +196,7 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .nav-menu.active {
-        display: flex; /* Show menu when active */
+        display: flex;
     }
     .nav-menu li {
         margin: 0.5rem 0;
@@ -218,60 +206,54 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
         font-size: 1rem;
     }
     section {
-        padding: 1.5rem 0.5rem; /* Reduced padding for mobile */
+        padding: 1.5rem 1rem; /* Adjusted padding for mobile */
+        scroll-margin-top: 60px; /* Adjusted for mobile header height */
     }
     h1 {
-        font-size: 1.8rem; /* Smaller font for mobile */
+        font-size: 1.8rem;
     }
     h2 {
-        font-size: 1.3rem; /* Smaller font for mobile */
+        font-size: 1.3rem;
     }
     h3 {
-        font-size: 1.2rem; /* Smaller font for mobile */
+        font-size: 1.2rem;
     }
     p, ul {
-        font-size: 0.9rem; /* Adjusted text size for readability */
+        font-size: 0.9rem;
     }
     .job {
         padding: 1rem;
         margin: 0.5rem 0;
     }
     form {
-        max-width: 100%; /* Full width on mobile */
-        padding: 0 0.5rem; /* Slight padding on sides */
+        max-width: 100%;
+        padding: 0 1rem; /* Adjusted padding to prevent overflow */
+        box-sizing: border-box;
     }
     input, textarea {
         width: 100%;
-        font-size: 0.9rem; /* Smaller font for mobile */
+        font-size: 0.9rem;
     }
     .button-group {
-        max-width: 100%; /* Full width on mobile */
-        padding: 0 0.5rem; /* Slight padding on sides */
+        max-width: 100%;
+        padding: 0 1rem; /* Adjusted padding to prevent overflow */
     }
     button, .cta-btn, .resume-btn {
-        width: 100%; /* Full width buttons on mobile */
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem; /* Smaller font for mobile */
-    }
-    button, .resume-btn {
-        height: 38px; /* Maintains height */
-    }
-    .resume-btn.download-smaller {
-        width: 70%; /* Keeps smaller size on mobile */
-        height: 34px; /* Maintains height */
+        width: 100%;
+        padding: 0.75rem 1rem; /* Consistent padding */
+        font-size: 0.9rem;
+        height: 38px; /* Consistent height */
     }
 }
 
-/* Desktop specific tweak to override mobile styles */
 @media (min-width: 601px) {
     .nav-toggle {
-        display: none; /* Hide hamburger on desktop */
+        display: none;
     }
     .nav-brand {
-        display: none; /* Hide brand on desktop */
+        display: none;
     }
     .nav-menu {
-        display: flex !important; /* Ensure menu is always visible */
+        display: flex !important;
     }
 }
-
