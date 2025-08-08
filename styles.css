@@ -176,6 +176,12 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
     background-color: #6B7280;
 }
 
+.resume-btn.download-smaller {
+    width: 85%; /* Slightly smaller than LinkedIn and Send Message buttons */
+    height: 36px; /* Slightly shorter height */
+    padding: 0.6rem 1rem; /* Adjusted padding for compact look */
+}
+
 @media (max-width: 600px) {
     .nav-brand {
         display: block;
@@ -243,11 +249,6 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
         padding: 0.75rem 1rem;
         font-size: 0.9rem;
         height: 38px;
-    }
-    .resume-btn.download-smaller {
-        width: 85%; /* Slightly smaller than LinkedIn and Send Message buttons */
-        height: 36px; /* Slightly shorter height */
-        padding: 0.6rem 1rem; /* Adjusted padding for compact look */
     }
 }
 
