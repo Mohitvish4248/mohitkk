@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: stretch; /* Ensures full width */
+    scroll-behavior: smooth;
 }
 
 header {
@@ -273,3 +274,4 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
         display: flex !important; /* Ensure menu is always visible */
     }
 }
+
