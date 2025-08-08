@@ -245,7 +245,7 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
         height: 38px;
     }
     .resume-btn.download-smaller {
-        width: 80%; /* Slightly smaller than full width */
+        width: 50%; /* Slightly smaller than full width */
         height: 34px; /* Slightly shorter height */
         padding: 0.5rem 1rem; /* Reduced padding for compact look */
     }
@@ -262,3 +262,4 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
         display: flex !important;
     }
 }
+
