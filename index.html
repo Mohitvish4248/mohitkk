@@ -28,7 +28,7 @@
 
 <section id="home">
     <h1>Grace Buenrostro</h1>
-    <h2>Director of People & Operations | Recruiting Leader  | Organizational Strategist</h2>
+    <h2>Director of People & Operations | Recruiting Leader | Organizational Strategist</h2>
     <p>Experienced leader with 9+ years scaling organizations, modernizing talent acquisition, and building operational infrastructure.</p>
     <a href="#contact" class="cta-btn">Get in Touch</a>
 </section>
@@ -53,7 +53,7 @@
 
 <section id="experience">
     <h2>Professional Experience</h2>
-    <!-- Jobs list here as in your original -->
+    <!-- Jobs list same as your original -->
 </section>
 
 <section id="education-tools">
@@ -77,40 +77,53 @@
 
 <section id="contact">
     <h2>Contact</h2>
-    <form id="contact-form">
+    <form id="enquiryForm">
+        <!-- Hidden recipient email -->
+        <input type="hidden" name="to_email" value="Gracebuenrostro1@gmail.com">
+
         <input type="text" name="from_name" placeholder="Name" required>
-        <input type="email" name="from_email" placeholder="Email" required>
+        <input type="email" name="email" placeholder="Email" required>
         <textarea name="message" placeholder="Message" required></textarea>
         <button type="submit">Send Message</button>
     </form>
+    <p id="form-status"></p>
     <div class="button-group">
         <a href="https://linkedin.com/in/grace-buenrostro" class="resume-btn">LinkedIn Profile</a>
     </div>
 </section>
 
-<!-- EmailJS Integration (Direct Send Method) -->
+<!-- EmailJS Script -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
     (function() {
         emailjs.init("NHHxSa9QjFBm4PL8w"); // Public Key
     })();
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+    document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const form = this;
+        const status = document.getElementById("form-status");
+        const email = form.email.value.trim();
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
-        // Direct send method with fixed recipient
-        emailjs.send('service_gef3syk', 'template_gwwenja', {
-            from_name: document.querySelector('[name="from_name"]').value,
-            from_email: document.querySelector('[name="from_email"]').value,
-            message: document.querySelector('[name="message"]').value,
-            to_email: "Gracebuenrostro1@gmail.com"
-        })
-        .then(function() {
-            alert('Message sent successfully!');
-            document.getElementById('contact-form').reset();
-        }, function(error) {
-            alert('Failed to send message. Error: ' + JSON.stringify(error));
-        });
+        // Gmail validation
+        if (!emailPattern.test(email)) {
+            status.textContent = "❌ Please enter a valid Gmail address (e.g. yourname@gmail.com)";
+            status.style.color = "red";
+            return;
+        }
+
+        // Send using EmailJS
+        emailjs.sendForm("service_gef3syk", "template_gwwenja", form)
+            .then(() => {
+                status.textContent = "✅ Enquiry Sent Successfully!";
+                status.style.color = "#10b981";
+                form.reset();
+            }, (err) => {
+                status.textContent = "❌ Failed to send. Please try again.";
+                status.style.color = "red";
+                console.log(err);
+            });
     });
 </script>
 
