@@ -78,9 +78,6 @@
 <section id="contact">
     <h2>Contact</h2>
     <form id="contact-form">
-        <!-- Hidden recipient email -->
-        <input type="hidden" name="to_email" value="Gracebuenrostro1@gmail.com">
-        
         <input type="text" name="from_name" placeholder="Name" required>
         <input type="email" name="from_email" placeholder="Email" required>
         <textarea name="message" placeholder="Message" required></textarea>
@@ -91,7 +88,7 @@
     </div>
 </section>
 
-<!-- EmailJS Integration -->
+<!-- EmailJS Integration (Direct Send Method) -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
     (function() {
@@ -101,13 +98,19 @@
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        emailjs.sendForm('service_gef3syk', 'template_gwwenja', this)
-            .then(function() {
-                alert('Message sent successfully!');
-                document.getElementById('contact-form').reset();
-            }, function(error) {
-                alert('Failed to send message. Error: ' + JSON.stringify(error));
-            });
+        // Direct send method with fixed recipient
+        emailjs.send('service_gef3syk', 'template_gwwenja', {
+            from_name: document.querySelector('[name="from_name"]').value,
+            from_email: document.querySelector('[name="from_email"]').value,
+            message: document.querySelector('[name="message"]').value,
+            to_email: "Gracebuenrostro1@gmail.com"
+        })
+        .then(function() {
+            alert('Message sent successfully!');
+            document.getElementById('contact-form').reset();
+        }, function(error) {
+            alert('Failed to send message. Error: ' + JSON.stringify(error));
+        });
     });
 </script>
 
